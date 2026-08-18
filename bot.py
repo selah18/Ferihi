@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 GROQ_API_KEY = os.environ["GROQ_API_KEY"]
 OWNER_CHAT_ID = int(os.environ["OWNER_CHAT_ID"])  # your Telegram user ID
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-8b-instant")
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama3-8b-8192")
 
 STATE_FILE = Path(__file__).parent / "state.json"
 groq_client = Groq(api_key=GROQ_API_KEY)
