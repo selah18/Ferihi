@@ -27,21 +27,11 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 GROQ_API_KEY = os.environ["GROQ_API_KEY"]
 OWNER_CHAT_ID = int(os.environ["OWNER_CHAT_ID"])  # your Telegram user ID
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-20b")
 
 STATE_FILE = Path(__file__).parent / "state.json"
 groq_client = Groq(api_key=GROQ_API_KEY)
 #groq_client = Groq()
-
-async def check_models(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    try:
-        models = groq_client.models.list()
-        model_ids = "\n".join([f"`{m.id}`" for m in models.data])
-        await update.message.reply_text(f"Available Models:\n{model_ids}", parse_mode="Markdown")
-    except Exception as e:
-        await update.message.reply_text(f"Error fetching models: {e}")
-
-app.add_handler(CommandHandler("models", check_models))
 
 
 
