@@ -39,7 +39,7 @@ Ground rules:
 # First message sent to her when away mode turns on and she messages for
 # the first time in that session. Edit freely.
 DISCLOSURE_MESSAGE = (
-    "Hey love 💛 this is Selahadin's away-bot — he's up in the air and "
+    "Hey love ❤️ this is Selahadin's away-bot — he's up in the air and "
     "off the grid for a bit, so I'm holding the fort till he lands. "
     "Talk to me like normal, he'll see everything when he's back."
 )
