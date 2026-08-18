@@ -30,8 +30,8 @@ OWNER_CHAT_ID = int(os.environ["OWNER_CHAT_ID"])  # your Telegram user ID
 GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
 
 STATE_FILE = Path(__file__).parent / "state.json"
-#groq_client = Groq(api_key=GROQ_API_KEY)
-groq_client = Groq()
+groq_client = Groq(api_key=GROQ_API_KEY)
+#groq_client = Groq()
 
 
 def load_state() -> dict:
