@@ -33,6 +33,17 @@ STATE_FILE = Path(__file__).parent / "state.json"
 groq_client = Groq(api_key=GROQ_API_KEY)
 #groq_client = Groq()
 
+async def check_models(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    try:
+        models = groq_client.models.list()
+        model_ids = "\n".join([f"`{m.id}`" for m in models.data])
+        await update.message.reply_text(f"Available Models:\n{model_ids}", parse_mode="Markdown")
+    except Exception as e:
+        await update.message.reply_text(f"Error fetching models: {e}")
+
+app.add_handler(CommandHandler("models", check_models))
+
+
 
 def load_state() -> dict:
     if STATE_FILE.exists():
